@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payphone Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</head>
+
+<header>
+    <div class="titleofHero" style="position: absolute; top: 0; left: 0;">
+        <h1>Ben Williams</h1>
+        <h2>Front End Web Developer || Supervisor || Mixed Martial Artist</h2>
+    </div>
+</header>
+
+    <body id="WholeBody">
+    <!-- Type Writer Affect left side -->
+    <div class="bodyofHero" style="position: absolute; top: 1; left: 0; z-index: 1;">
+        <div class="typed"></div>
+        <script>
+            const typedText = ["This is my way of showing off my work as well as hoping to build connections and leads for future projects. I am a web developer and I love to create websites and web applications. I'm always looking for new projects to work on and new people to meet. I'm excited to share my work with you!"];
+            let j = 0, currentText = "";
+            const element = document.querySelector(".typed");
+            const typingSpeed = 20; // Speed at which text is typed (faster)
+    
+            function typeEffect() {
+                if (j < typedText[0].length) {
+                    currentText += typedText[0][j++];
+                    element.innerHTML = currentText;
+                    setTimeout(typeEffect, typingSpeed);
+                }
+            }
+    
+            typeEffect();
+    
+            // Stop typing effect when a button is clicked
+            document.querySelectorAll('.key').forEach(button => {
+                button.addEventListener('click', () => {
+                    clearTimeout(typingInterval);
+                });
+            });
+        </script>
+    </div>
+    
+    <!-- Type Writer Affect right side -->
+    <div class="bodyofHeroRight" style="position: absolute; top: 1; right: 0; z-index: 1;">
+        <div class="typed-right"></div>
+        <script>
+            const typedTextRight = ["<h2><u>Features of Key Pad</u></h2><ol><li>This is my About me Page, Where you can find more details about me as a person!</li><li>Some Projects I have done or been apart of!.</li><li>What Intrest me and what careers I am looking to get into.</li><li>Past Jobs and Other related Expirence!</li><li>Some of the more Specfic Skills I have for related fields</li><li>This is my Contact Page to get in touch with me!</li></ol> "];
+            let jRight = 0, currentTextRight = "";
+            const elementRight = document.querySelector(".typed-right");
+            const typingSpeedRight = 10; // Same speed as left side
+    
+            function typeEffectRight() {
+                if (jRight < typedTextRight[0].length) {
+                    currentTextRight += typedTextRight[0][jRight++];
+                    elementRight.innerHTML = currentTextRight;
+                    setTimeout(typeEffectRight, typingSpeedRight);
+                }
+            }
+    
+            typeEffectRight();
+    
+            // Stop typing effect when a button is clicked
+            document.querySelectorAll('.key').forEach(button => {
+                button.addEventListener('click', () => {
+                    clearTimeout(typingInterval);
+                });
+            });
+        </script>
+    </div>
+    </body>
+
+
+<!-- Hero Section -->
+<div class="payphoneHero"> 
+  <div class="payphone">
+    <div class="phone-top">
+      <div class="screen">
+        <p id="screen-text">Welcome!</p>
+      </div>
+    </div>
+    <div class="dial-pad">
+    <!-- Number buttons -->
+    <button class="key" data-toggle="modal" data-target="#aboutPage" title="About Me">1</button>
+    <button class="key" data-toggle="modal" data-target="#projectsPage" title="Projects">2</button>
+    <button class="key" data-toggle="modal" data-target="#interestsPage" title="Interests">3</button>
+    <button class="key" data-toggle="modal" data-target="#experiencePage" title="Experience">4</button>
+    <button class="key" data-toggle="modal" data-target="#skillsPage" title="Skills">5</button>
+    <button class="key" data-toggle="modal" data-target="#contactPage" title="Contact">6</button>
+
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <button class="key">*</button>
+        <button class="key">0</button>
+        <button class="key" id>#</button>
+    <script>
+        document.querySelectorAll('.key').forEach(button => {
+            button.addEventListener('mouseover', () => {
+                const screenText = document.getElementById('screen-text');
+                switch (button.innerText) {
+                    case '1':
+                        screenText.innerText = 'About Me';
+                        break;
+                        case '2':
+                        screenText.innerText = 'Projects';
+                        break;
+                    case '3':
+                        screenText.innerText = 'Interests';
+                        break;
+                    case '4':
+                    screenText.innerText = 'Experience';
+                        break;
+                    case '5':
+                        screenText.innerText = 'Skills';
+                        break;
+                    case '6':
+                        screenText.innerText = 'Contact';
+                        break;
+                    default:
+                        screenText.innerText = 'Welcome!';
+                }
+            });
+
+            button.addEventListener('mouseout', () => {
+                document.getElementById('screen-text').innerText = 'Welcome!';
+            });
+        });
+    </script>
+    </div>
+  </div>
+</div>
+
+  <!-- Pop-up sections -->
+<div id="aboutPage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="aboutPageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+            <div class="modal-header">
+                <h5 class="modal-title" id="aboutPageLabel" style="color: #0f0;">About Me</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #0f0;">
+                <p>Hi, I'm Payphone! I'm a web developer and I love to create websites and web applications. I'm always looking for new projects to work on and new people to meet. I'm excited to share my work with you!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="projectsPage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="projectsPageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+            <div class="modal-header">
+                <h5 class="modal-title" id="projectsPageLabel" style="color: #0f0;">Projects</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #0f0;"></div>
+                <p>Here are some of my projects...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="interestsPage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="interestsPageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+            <div class="modal-header">
+                <h5 class="modal-title" id="interestsPageLabel" style="color: #0f0;">Interests</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #0f0;"></div>
+                <p>Here are some of my interests...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="experiencePage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="experiencePageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+            <div class="modal-header">
+                <h5 class="modal-title" id="experiencePageLabel" style="color: #0f0;">Experience</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #0f0;">
+                <p>Here is my experience...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="skillsPage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="skillsPageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+            <div class="modal-header">
+                <h5 class="modal-title" id="skillsPageLabel" style="color: #0f0;">Skills</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #0f0;"></div>
+                <p>Here are my skills...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contactPage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactPageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactPageLabel" style="color: #0f0;">Contact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #0f0;"></div>
+            <p>Here is my contact information...</p>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Social Media Icons -->
+<footer>
+    <div class="socialMedias" style="display: flex; flex-direction: column;"></div>
+        <a href="https://github.com/benyboy63"><svg class="github" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z"/></svg></a>
+        <a href="https://www.linkedin.com/in/ben-williams-335bb6336/?trk=opento_sprofile_details"><svg class="linkedin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="90px" height="90px" fill-rule="nonzero"><g fill="#00ff00" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M24,4h-18c-1.105,0 -2,0.895 -2,2v18c0,1.105 0.895,2 2,2h18c1.105,0 2,-0.895 2,-2v-18c0,-1.105 -0.895,-2 -2,-2zM10.954,22h-2.95v-9.492h2.95zM9.449,11.151c-0.951,0 -1.72,-0.771 -1.72,-1.72c0,-0.949 0.77,-1.719 1.72,-1.719c0.948,0 1.719,0.771 1.719,1.719c0,0.949 -0.771,1.72 -1.719,1.72zM22.004,22h-2.948v-4.616c0,-1.101 -0.02,-2.517 -1.533,-2.517c-1.535,0 -1.771,1.199 -1.771,2.437v4.696h-2.948v-9.492h2.83v1.297h0.04c0.394,-0.746 1.356,-1.533 2.791,-1.533c2.987,0 3.539,1.966 3.539,4.522z"></path></g></g></svg></a>
+        <a href="mailto:Benwilliams796@gmail.com"><svg class="email" xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#0f0"><path d="M146.67-160q-27 0-46.84-19.83Q80-199.67 80-226.67v-506.66q0-27 19.83-46.84Q119.67-800 146.67-800h666.66q27 0 46.84 19.83Q880-760.33 880-733.33v506.66q0 27-19.83 46.84Q840.33-160 813.33-160H146.67ZM480-454.67 146.67-670v443.33h666.66V-670L480-454.67Zm0-66.66 330.67-212H150l330 212ZM146.67-670v-63.33V-226.67-670Z"/></svg></a>
+        <a href="resume.pdf" download="resume.pdf" title="Download Resume PDF"><svg class="resume" xmlns="http://www.w3.org/2000/svg" height="80px" viewBox="0 -960 960 960" width="80px" fill="#0f0"><path d="M226.67-80q-27 0-46.84-19.83Q160-119.67 160-146.67v-666.66q0-27 19.83-46.84Q199.67-880 226.67-880h360.66L800-667.33v520.66q0 27-19.83 46.84Q760.33-80 733.33-80H226.67Zm0-66.67h506.66V-636H556v-177.33H226.67v666.66Zm253.51-66.66q61.49 0 103.99-43.09 42.5-43.08 42.5-103.58v-146.67h-53.34V-360q0 39-26.83 66.17-26.83 27.16-66.5 27.16-39 0-66.17-27.16Q386.67-321 386.67-360v-220q0-15 9.66-24.17 9.67-9.16 23.67-9.16 15 0 24.17 9.16 9.16 9.17 9.16 24.17v206.67h53.34V-580q0-36.4-25.06-61.53-25.05-25.14-61.33-25.14t-61.61 25.14Q333.33-616.4 333.33-580v220q0 60.5 43.14 103.58 43.13 43.09 103.71 43.09Zm-253.51-600V-636v-177.33 666.66-666.66Z"/></svg></a>
+    </div>
+</footer>
+</body>
+
+<div class="mobilepopup">
+    <div id="briefingPage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="briefingPageLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #1a1a1a; font-family: 'digital-7';">
+                <div class="modal-header" style="border-bottom: 1px solid #0f0;">
+                    <h5 class="modal-title" id="briefingPageLabel" style="color: #0f0;">Portfolio</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #0f0;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="color: #0f0;">
+                    <div class="typed-mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show modal on page load for mobile devices
+    window.addEventListener('load', function() {
+        if (window.innerWidth <= 1505) {
+            $('#briefingPage').modal('show');
+            
+            const typedTextMobile = ["Welcome to my portfolio website! Here you will find information about my projects, skills, experience, and interests. Feel free to explore and get in touch if you have any questions or opportunities. Thank you for visiting!"];
+            let j = 0, currentTextMobile = "";
+            const elementMobile = document.querySelector(".typed-mobile");
+            const typingSpeed = 20;
+
+            function typeEffectMobile() {
+                if (j < typedTextMobile[0].length) {
+                    currentTextMobile += typedTextMobile[0][j++];
+                    elementMobile.innerHTML = currentTextMobile;
+                    setTimeout(typeEffectMobile, typingSpeed);
+                }
+            }
+
+            typeEffectMobile();
+        }
+    });
+
+    // Update on resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 1505) {
+            $('#briefingPage').modal('show');
+        } else {
+            $('#briefingPage').modal('hide');
+        }
+    });
+
+// Function to handle modal close
+function hideBriefingModal(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    $('#briefingPage').modal('hide');
+}
+
+// Attach event listeners
+// Close modal when clicking the close button
+$('#briefingPage .close').on('click', hideBriefingModal);
+
+// Close modal when clicking outside
+$(document).on('click', '.modal', function(e) {
+    if ($(e.target).hasClass('modal')) {
+        hideBriefingModal();
+    }
+});
+
+// Prevent modal close when clicking inside modal content
+$('#briefingPage .modal-content').on('click', function(e) {
+    e.stopPropagation();
+});
+
+</script>
+</html>
